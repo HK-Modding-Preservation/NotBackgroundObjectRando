@@ -5,7 +5,7 @@ using UnityEngine;
 namespace NotBackgroundObjectRando {
     public class NotBackgroundObjectRando: Mod, IGlobalSettings<GlobalSettings> {
         new public string GetName() => "NotBackgroundObjectRando";
-        public override string GetVersion() => "1.0.1.0";
+        public override string GetVersion() => "1.0.1.1";
 
         public static GlobalSettings globalSettings { get; set; } = new();
         public void OnLoadGlobal(GlobalSettings s) => globalSettings = s;

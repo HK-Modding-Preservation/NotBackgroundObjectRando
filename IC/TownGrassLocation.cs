@@ -29,7 +29,9 @@ namespace NotBackgroundObjectRando {
         }
 
         private static void GrantCheck(On.TownGrass.orig_OnTriggerEnter2D orig, TownGrass self, Collider2D collision) {
-            if(GrassCut.ShouldCut(collision)) {
+            bool shouldCut = collision.tag == "Nail Attack" || (collision.tag == "HeroBox" && HeroController.instance.cState.superDashing) || collision.tag == "Sharp Shadow";
+            //if(GrassCut.ShouldCut(collision)) {
+            if(shouldCut) {
                 string placementName = RandoInterop.GetPlacementName(self.gameObject);
                 if(Ref.Settings.Placements.TryGetValue(placementName, out AbstractPlacement ap)) {
                     GiveInfo gi = new() {
